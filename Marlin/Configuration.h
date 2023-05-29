@@ -36,32 +36,6 @@
  * Advanced settings can be found in Configuration_adv.h
  */
 #define CONFIGURATION_H_VERSION 02010300
-#define DISABLE_INACTIVE_EXTRUDER      // Added by config.ini
-#define USE_XMIN_PLUG                  // Added by config.ini
-#define USE_YMIN_PLUG                  // Added by config.ini
-#define USE_ZMIN_PLUG                  // Added by config.ini
-#define X_MAX_ENDSTOP_INVERTING false  // Added by config.ini
-#define X_MIN_ENDSTOP_INVERTING false  // Added by config.ini
-#define Y_MAX_ENDSTOP_INVERTING false  // Added by config.ini
-#define Y_MIN_ENDSTOP_INVERTING false  // Added by config.ini
-#define Z_MAX_ENDSTOP_INVERTING false  // Added by config.ini
-#define Z_MIN_ENDSTOP_INVERTING false  // Added by config.ini
-#define Z_MIN_PROBE_ENDSTOP_INVERTING false // Added by config.ini
-#define DEFAULT_STEPPER_DEACTIVE_TIME 120 // Added by config.ini
-#define DISABLE_INACTIVE_E true        // Added by config.ini
-#define DISABLE_INACTIVE_X true        // Added by config.ini
-#define DISABLE_INACTIVE_Y true        // Added by config.ini
-#define DISABLE_INACTIVE_Z true        // Added by config.ini
-#define INVERT_E_STEP_PIN false        // Added by config.ini
-#define INVERT_I_STEP_PIN false        // Added by config.ini
-#define INVERT_J_STEP_PIN false        // Added by config.ini
-#define INVERT_K_STEP_PIN false        // Added by config.ini
-#define INVERT_U_STEP_PIN false        // Added by config.ini
-#define INVERT_V_STEP_PIN false        // Added by config.ini
-#define INVERT_W_STEP_PIN false        // Added by config.ini
-#define INVERT_X_STEP_PIN false        // Added by config.ini
-#define INVERT_Y_STEP_PIN false        // Added by config.ini
-#define INVERT_Z_STEP_PIN false        // Added by config.ini
 
 //===========================================================================
 //============================= Getting Started =============================
@@ -1346,7 +1320,7 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 // Force the use of the probe for Z-axis homing
 #define USE_PROBE_FOR_Z_HOMING
@@ -1437,7 +1411,7 @@
 #endif
 
 // A probe that is deployed and stowed with a solenoid pin (SOL1_PIN)
-#define SOLENOID_PROBE
+//#define SOLENOID_PROBE
 
 // A sled-mounted probe like those designed by Charles Bell.
 //#define Z_PROBE_SLED
@@ -1561,7 +1535,7 @@
 #define NOZZLE_TO_PROBE_OFFSET { -40, -10, 0 }
 
 // Enable and set to use a specific tool for probing. Disable to allow any tool.
-#define PROBING_TOOL 0
+//#define PROBING_TOOL 0
 #ifdef PROBING_TOOL
   //#define PROBE_TOOLCHANGE_NO_MOVE  // Suppress motion on probe tool-change
 #endif
