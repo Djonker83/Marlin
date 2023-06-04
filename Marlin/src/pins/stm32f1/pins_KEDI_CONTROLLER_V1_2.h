@@ -31,7 +31,7 @@
 // Ignore temp readings during development.
 //#define BOGUS_TEMPERATURE_GRACE_PERIOD    2000
 
-#if EITHER(NO_EEPROM_SELECTED, FLASH_EEPROM_EMULATION)
+#if ANY(NO_EEPROM_SELECTED, FLASH_EEPROM_EMULATION)
   #define FLASH_EEPROM_EMULATION
   #define EEPROM_PAGE_SIZE     (0x800U)           // 2KB
   #define EEPROM_START_ADDRESS (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
@@ -190,7 +190,7 @@
     #define BTN_EN1                  EXP1_08_PIN
     #define BTN_EN2                  EXP1_06_PIN
 
-    #define LCD_PINS_ENABLE          EXP1_03_PIN
+    #define LCD_PINS_EN              EXP1_03_PIN
     #define LCD_PINS_D4              EXP1_05_PIN
 
   #elif IS_TFTGLCD_PANEL
@@ -211,7 +211,7 @@
     #define BTN_EN1                  EXP2_08_PIN
     #define BTN_EN2                  EXP2_06_PIN
 
-    #define LCD_PINS_ENABLE          EXP1_08_PIN
+    #define LCD_PINS_EN              EXP1_08_PIN
 
     #if ENABLED(FYSETC_MINI_12864)
 
@@ -228,7 +228,7 @@
       //#define LED_PIN              EXP1_04_PIN  // green
       //#define LED_PIN              EXP1_03_PIN  // blue
 
-      //#if EITHER(FYSETC_MINI_12864_1_2, FYSETC_MINI_12864_2_0)
+      //#if ANY(FYSETC_MINI_12864_1_2, FYSETC_MINI_12864_2_0)
       //  #ifndef RGB_LED_R_PIN
       //    #define RGB_LED_R_PIN    EXP1_05_PIN
       //  #endif
