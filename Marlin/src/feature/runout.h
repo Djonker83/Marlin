@@ -372,7 +372,6 @@ class FilamentSensorBase {
               SERIAL_ECHO(i ? F(", ") : F("Runout remaining mm: "), mm_countdown.runout[i]);
             #if ENABLED(FILAMENT_SWITCH_AND_MOTION)
               for (uint8_t i = 0; i < NUM_MOTION_SENSORS; ++i)
-                SERIAL_ECHO(i ? F(", ") : F("Motion remaining mm: "), mm_countdown.motion[i]);
             #endif
             SERIAL_EOL();
           }

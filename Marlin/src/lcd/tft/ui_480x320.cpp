@@ -956,7 +956,6 @@ void MarlinUI::move_axis_screen() {
       TERN_(TOUCH_SCREEN, add_control(TFT_WIDTH / 2 - Images[imgHome].width / 2, y - (Images[imgHome].width - BTN_HEIGHT) / 2, BUTTON, (intptr_t)do_home, imgHome, !busy));
       drawBtn(TFT_WIDTH * 5 / 6 - BTN_WIDTH / 2, y, "X+", (intptr_t)x_plus, imgRight, X_BTN_COLOR, !busy);
     #endif
-
     y += BTN_HEIGHT + 4;
 
     /**************************************************************************

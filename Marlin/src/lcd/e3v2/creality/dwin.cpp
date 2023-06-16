@@ -200,6 +200,7 @@ void hmiSetLanguageCache() {
   dwinJPGCacheTo1(hmiIsChinese() ? Language_Chinese : Language_English);
 }
 
+
 void hmiSetLanguage() {
   #if ALL(EEPROM_SETTINGS, IIC_BL24CXX_EEPROM)
     BL24CXX::read(DWIN_LANGUAGE_EEPROM_ADDRESS, (uint8_t*)&hmiFlag.language, sizeof(hmiFlag.language));
@@ -4238,6 +4239,7 @@ void dwinHandleScreen() {
     #endif
     #if ANY(HAS_BED_PROBE, BABYSTEPPING)
       case Homeoffset:    hmiZoffset(); break;
+
     #endif
     #if HAS_HEATED_BED
       case BedTemp:       hmiBedTemp(); break;
