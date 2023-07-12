@@ -36,7 +36,7 @@
  * Advanced settings can be found in Configuration_adv.h
  */
 #define CONFIGURATION_H_VERSION 02010201
-#define TEMP_SENSOR_SOC 0              // Added by config.ini
+//#define TEMP_SENSOR_SOC 0              // Added by config.ini
 #define X_MAX_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
 #define X_MIN_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
 #define Y_MAX_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
@@ -49,10 +49,10 @@
 #define AUTOTEMP_MIN 210               // Added by config.ini
 #define BABYSTEP_GFX_OVERLAY           // Added by config.ini
 #define BLTOUCH_HS_EXTRA_CLEARANCE 7   // Added by config.ini
-#define DEFAULT_STEPPER_TIMEOUT_SEC 120 // Added by config.ini
+//#define DEFAULT_STEPPER_TIMEOUT_SEC 120 // Added by config.ini
 #define DISABLE_IDLE_X                 // Added by config.ini
 #define DISABLE_IDLE_Y                 // Added by config.ini
-#define DISABLE_IDLE_Z                 // Added by config.ini
+//#define DISABLE_IDLE_Z                 // Added by config.ini
 #define MULTISTEPPING_LIMIT 16         // Added by config.ini
 #define STEP_STATE_E HIGH              // Added by config.ini
 #define STEP_STATE_X HIGH              // Added by config.ini
@@ -1296,7 +1296,7 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 // Force the use of the probe for Z-axis homing
 #define USE_PROBE_FOR_Z_HOMING
@@ -1652,7 +1652,7 @@
 //#define DISABLE_W false
 
 // Turn off the display blinking that warns about possible accuracy reduction
-//#define DISABLE_REDUCED_ACCURACY_WARNING
+#define DISABLE_REDUCED_ACCURACY_WARNING
 
 // @section extruder
 
@@ -3320,7 +3320,7 @@
   //#define NEOPIXEL_PIN                4 // LED driving pin
   //#define NEOPIXEL2_TYPE  NEOPIXEL_TYPE
   //#define NEOPIXEL2_PIN               5
-  #define NEOPIXEL_PIXELS 30              // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
+  #define NEOPIXEL_PIXELS 144              // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
   #define NEOPIXEL_IS_SEQUENTIAL          // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
   #define NEOPIXEL_BRIGHTNESS 127         // Initial brightness (0-255)
   //#define NEOPIXEL_STARTUP_TEST         // Cycle through colors at startup
