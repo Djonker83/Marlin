@@ -37,15 +37,15 @@
  */
 #define CONFIGURATION_H_VERSION 02010201
 //#define TEMP_SENSOR_SOC 0              // Added by config.ini
-#define X_MAX_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
+//#define X_MAX_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
 #define X_MIN_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
 #define Y_MAX_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
-#define Y_MIN_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
+//#define Y_MIN_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
 #define Z_MAX_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
 #define Z_MIN_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
 #define Z_MIN_PROBE_ENDSTOP_HIT_STATE HIGH // Added by config.ini
 #define AUTOTEMP_FACTOR 0.1f           // Added by config.ini
-#define AUTOTEMP_MAX 250               // Added by config.ini
+//#define AUTOTEMP_MAX 250               // Added by config.ini
 #define AUTOTEMP_MIN 210               // Added by config.ini
 #define BABYSTEP_GFX_OVERLAY           // Added by config.ini
 #define BLTOUCH_HS_EXTRA_CLEARANCE 7   // Added by config.ini
@@ -54,7 +54,7 @@
 #define DISABLE_IDLE_Y                 // Added by config.ini
 //#define DISABLE_IDLE_Z                 // Added by config.ini
 #define MULTISTEPPING_LIMIT 16         // Added by config.ini
-#define STEP_STATE_E HIGH              // Added by config.ini
+//#define STEP_STATE_E HIGH              // Added by config.ini
 #define STEP_STATE_X HIGH              // Added by config.ini
 #define STEP_STATE_Y HIGH              // Added by config.ini
 #define STEP_STATE_Z HIGH              // Added by config.ini
@@ -82,7 +82,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(Majik, octopus 1.1 config marlin bf2.1.2)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(Majik, octopus 1.1 config marlin b2.1.2)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -1959,7 +1959,7 @@
   /**
    * Enable the G26 Mesh Validation Pattern tool.
    */
-  //#define G26_MESH_VALIDATION
+  #define G26_MESH_VALIDATION
   #if ENABLED(G26_MESH_VALIDATION)
     #define MESH_TEST_NOZZLE_SIZE    0.4  // (mm) Diameter of primary nozzle.
     #define MESH_TEST_LAYER_HEIGHT   0.2  // (mm) Default layer height for G26.
@@ -2019,7 +2019,7 @@
   //#define UBL_Z_RAISE_WHEN_OFF_MESH 2.5 // When the nozzle is off the mesh, this value is used
                                           // as the Z-Height correction value.
 
-  //#define UBL_MESH_WIZARD         // Run several commands in a row to get a complete mesh
+  #define UBL_MESH_WIZARD         // Run several commands in a row to get a complete mesh
 
 #elif ENABLED(MESH_BED_LEVELING)
 
@@ -2204,7 +2204,7 @@
 #define EEPROM_BOOT_SILENT    // Keep M503 quiet and only give errors during first load
 #if ENABLED(EEPROM_SETTINGS)
   //#define EEPROM_AUTO_INIT  // Init EEPROM automatically on any errors.
-  //#define EEPROM_INIT_NOW   // Init EEPROM on first boot after a new build.
+  #define EEPROM_INIT_NOW   // Init EEPROM on first boot after a new build.
 #endif
 
 // @section host
