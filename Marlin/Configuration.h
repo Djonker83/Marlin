@@ -38,15 +38,15 @@
 #define CONFIGURATION_H_VERSION 02010201
 //#define TEMP_SENSOR_SOC 0              // Added by config.ini
 //#define X_MAX_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
-#define X_MIN_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
+//#define X_MIN_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
 #define Y_MAX_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
 //#define Y_MIN_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
-#define Z_MAX_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
+//#define Z_MAX_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
 #define Z_MIN_ENDSTOP_HIT_STATE HIGH   // Added by config.ini
 #define Z_MIN_PROBE_ENDSTOP_HIT_STATE HIGH // Added by config.ini
 #define AUTOTEMP_FACTOR 0.1f           // Added by config.ini
 //#define AUTOTEMP_MAX 250               // Added by config.ini
-#define AUTOTEMP_MIN 210               // Added by config.ini
+//#define AUTOTEMP_MIN 210               // Added by config.ini
 #define BABYSTEP_GFX_OVERLAY           // Added by config.ini
 #define BLTOUCH_HS_EXTRA_CLEARANCE 7   // Added by config.ini
 //#define DEFAULT_STEPPER_TIMEOUT_SEC 120 // Added by config.ini
@@ -57,7 +57,7 @@
 //#define STEP_STATE_E HIGH              // Added by config.ini
 #define STEP_STATE_X HIGH              // Added by config.ini
 #define STEP_STATE_Y HIGH              // Added by config.ini
-#define STEP_STATE_Z HIGH              // Added by config.ini
+//#define STEP_STATE_Z HIGH              // Added by config.ini
 
 //===========================================================================
 //============================= Getting Started =============================
@@ -120,7 +120,7 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT -1
+#define SERIAL_PORT 1
 
 /**
  * Serial Port Baud Rate
@@ -142,7 +142,7 @@
  * Currently Ethernet (-2) is only supported on Teensy 4.1 boards.
  * :[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT_2 1
+#define SERIAL_PORT_2 -1
 //#define BAUDRATE_2 250000   // :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000] Enable to override BAUDRATE
 
 /**
@@ -575,7 +575,7 @@
 
 // Dummy thermistor constant temperature readings, for use with 998 and 999
 #define DUMMY_THERMISTOR_998_VALUE 25
-#define DUMMY_THERMISTOR_999_VALUE 100
+//#define DUMMY_THERMISTOR_999_VALUE 100
 
 // Resistor values when using MAX31865 sensors (-5) on TEMP_SENSOR_0 / 1
 #if TEMP_SENSOR_IS_MAX_TC(0)
@@ -636,7 +636,7 @@
 #define HEATER_6_MINTEMP   5
 #define HEATER_7_MINTEMP   5
 #define BED_MINTEMP 5
-#define CHAMBER_MINTEMP    5
+//#define CHAMBER_MINTEMP    5
 
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
@@ -650,7 +650,7 @@
 #define HEATER_6_MAXTEMP 275
 #define HEATER_7_MAXTEMP 275
 #define BED_MAXTEMP 100
-#define CHAMBER_MAXTEMP  60
+//#define CHAMBER_MAXTEMP  60
 
 /**
  * Thermal Overshoot
@@ -809,7 +809,7 @@
  * When set to any value below 255, enables a form of PWM to the chamber heater that acts like a divider
  * so don't use it unless you are OK with PWM on your heater. (See the comment on enabling PIDTEMPCHAMBER)
  */
-#define MAX_CHAMBER_POWER 255 // limits duty cycle to chamber heater; 255=full current
+//#define MAX_CHAMBER_POWER 255 // limits duty cycle to chamber heater; 255=full current
 
 #if ENABLED(PIDTEMPCHAMBER)
   #define MIN_CHAMBER_POWER 0
@@ -2245,7 +2245,7 @@
 #define PREHEAT_2_LABEL "ABS"
 #define PREHEAT_2_TEMP_HOTEND 240
 #define PREHEAT_2_TEMP_BED 110
-#define PREHEAT_2_TEMP_CHAMBER 35
+//#define PREHEAT_2_TEMP_CHAMBER 35
 #define PREHEAT_2_FAN_SPEED 0     // Value from 0 to 255
 
 // @section motion
