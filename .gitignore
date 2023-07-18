@@ -30,7 +30,7 @@ out-csv/
 out-language/
 *.gen
 *.sublime-workspace
-
+Marlin/config_marlin_bf_2.1.x.ini
 # OS
 applet/
 .DS_Store
