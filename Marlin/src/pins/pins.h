@@ -349,7 +349,7 @@
 #elif MB(WEEDO_62A)
   #include "mega/pins_WEEDO_62A.h"                  // ATmega2560                           env:mega2560
 #elif MB(GT2560_V41B)
-  #include "mega/pins_GT2560_V41b.h"                // ATmega2560                           env:mega2560
+  #include "mega/pins_GT2560_V41b.h"                // ATmega2560                           env:mega2560ext
 
 //
 // ATmega1281, ATmega2561
@@ -829,6 +829,8 @@
   #include "stm32h7/pins_BTT_SKR_V3_0_EZ.h"         // STM32H7                              env:STM32H743VI_btt env:STM32H723VG_btt
 #elif MB(BTT_OCTOPUS_MAX_EZ_V1_0)
   #include "stm32h7/pins_BTT_OCTOPUS_MAX_EZ.h"      // STM32H7                              env:STM32H723ZE_btt
+#elif MB(BTT_OCTOPUS_PRO_V1_0_1)
+  #include "stm32h7/pins_BTT_OCTOPUS_PRO_V1_0_1.h"  // STM32H7                              env:STM32H723ZE_btt
 #elif MB(BTT_OCTOPUS_PRO_V1_1)
   #include "stm32h7/pins_BTT_OCTOPUS_PRO_V1_1.h"    // STM32H7                              env:STM32H723ZE_btt
 #elif MB(TEENSY41)
@@ -884,6 +886,12 @@
   #include "samd/pins_MINITRONICS20.h"              // SAMD21                               env:SAMD21_minitronics20
 
 //
+// HC32 ARM Cortex-M4
+//
+#elif MB(AQUILA_V101)
+  #include "hc32f4/pins_AQUILA_101.h"               // HC32F460                             env:HC32F460C_aquila_101
+
+//
 // Custom board (with custom PIO env)
 //
 
@@ -932,6 +940,7 @@
   #define BOARD_MKS_MONSTER8            99925
   #define BOARD_LINUX_RAMPS             99926
   #define BOARD_BTT_MANTA_M4P_V1_0      99927
+  #define BOARD_VAKE403D                99928
 
   #if MB(MKS_13)
     #error "BOARD_MKS_13 is now BOARD_MKS_GEN_13. Please update your configuration."
@@ -991,6 +1000,8 @@
     #error "BOARD_LINUX_RAMPS is now BOARD_SIMULATED. Please update your configuration."
   #elif MB(BTT_MANTA_M4P_V1_0)
     #error "BOARD_BTT_MANTA_M4P_V1_0 is now BOARD_BTT_MANTA_M4P_V2_1. Please update your configuration."
+  #elif MB(VAKE403D)
+    #error "BOARD_VAKE403D is no longer supported in Marlin."
   #elif defined(MOTHERBOARD)
     #error "Unknown MOTHERBOARD value set in Configuration.h."
   #else
@@ -1026,6 +1037,7 @@
   #undef BOARD_MKS_MONSTER8
   #undef BOARD_LINUX_RAMPS
   #undef BOARD_BTT_MANTA_M4P_V1_0
+  #undef BOARD_VAKE403D
 
 #endif
 
