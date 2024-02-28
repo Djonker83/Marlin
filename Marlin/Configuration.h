@@ -102,7 +102,7 @@
  * :[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
 #define SERIAL_PORT_2 -1
-//#define BAUDRATE_2 250000   // :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000] Enable to override BAUDRATE
+#define BAUDRATE_2 250000   // :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000] Enable to override BAUDRATE
 
 /**
  * Select a third serial port on the board to use for communication with the host.
@@ -1129,7 +1129,7 @@
   //#define ENDSTOPPULLUP_UMAX
   //#define ENDSTOPPULLUP_VMAX
   //#define ENDSTOPPULLUP_WMAX
-  //#define ENDSTOPPULLUP_ZMIN_PROBE
+  #define ENDSTOPPULLUP_ZMIN_PROBE
 #endif
 
 // Enable pulldown for all endstops to prevent a floating state
@@ -1154,7 +1154,7 @@
   //#define ENDSTOPPULLDOWN_UMAX
   //#define ENDSTOPPULLDOWN_VMAX
   //#define ENDSTOPPULLDOWN_WMAX
-  #define ENDSTOPPULLDOWN_ZMIN_PROBE
+  //#define ENDSTOPPULLDOWN_ZMIN_PROBE
 #endif
 
 /**
@@ -1162,7 +1162,7 @@
  * Set to the state (HIGH or LOW) that applies to each endstop.
  */
 #define X_MIN_ENDSTOP_HIT_STATE LOW
-#define X_MAX_ENDSTOP_HIT_STATE HIGH
+#define X_MAX_ENDSTOP_HIT_STATE LOW
 #define Y_MIN_ENDSTOP_HIT_STATE LOW
 #define Y_MAX_ENDSTOP_HIT_STATE HIGH
 #define Z_MIN_ENDSTOP_HIT_STATE HIGH
@@ -1799,7 +1799,7 @@
  * If an axis has endstops on both ends the one specified above is used for
  * homing, while the other can be used for things like SD_ABORT_ON_ENDSTOP_HIT.
  */
-//#define X_SAFETY_STOP
+#define X_SAFETY_STOP
 //#define Y_SAFETY_STOP
 //#define Z_SAFETY_STOP
 //#define I_SAFETY_STOP
@@ -1941,7 +1941,7 @@
   // After a runout is detected, continue printing this length of filament
   // before executing the runout script. Useful for a sensor at the end of
   // a feed tube. Requires 4 bytes SRAM per sensor, plus 4 bytes overhead.
-  //#define FILAMENT_RUNOUT_DISTANCE_MM 25
+  #define FILAMENT_RUNOUT_DISTANCE_MM 25
 
   #ifdef FILAMENT_RUNOUT_DISTANCE_MM
     // Enable this option to use an encoder disc that toggles the runout pin
