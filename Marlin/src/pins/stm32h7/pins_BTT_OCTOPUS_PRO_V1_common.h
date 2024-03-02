@@ -62,7 +62,7 @@
 #ifdef X_STALL_SENSITIVITY
   #define X_STOP_PIN                  X_DIAG_PIN
   #if X_HOME_TO_MIN
-    #define X_MAX_PIN                E0_DIAG_PIN  // E0DET
+    #define X_MAX_PIN                E3_DIAG_PIN  // E3DET
   #else
     #define X_MIN_PIN                E0_DIAG_PIN  // E0DET
   #endif
