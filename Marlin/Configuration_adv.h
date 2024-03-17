@@ -482,9 +482,9 @@
 #define AUTOTEMP
 #if ENABLED(AUTOTEMP)
   #define AUTOTEMP_OLDWEIGHT 0.98     // Factor used to weight previous readings (0.0 < value < 1.0)
-  #define AUTOTEMP_MIN 210         
-  #define AUTOTEMP_MAX 250         
-  #define AUTOTEMP_FACTOR 0.1f      
+  #define AUTOTEMP_MIN 210
+  #define AUTOTEMP_MAX 250
+  #define AUTOTEMP_FACTOR 0.1f
   // Turn on AUTOTEMP on M104/M109 by default using proportions set here
   //#define AUTOTEMP_PROPORTIONAL
   #if ENABLED(AUTOTEMP_PROPORTIONAL)
@@ -559,10 +559,10 @@
 
 // Calibration for AD595 / AD8495 sensor to adjust temperature measurements.
 // The final temperature is calculated as (measuredTemp * GAIN) + OFFSET.
-#define TEMP_SENSOR_AD595_OFFSET 0.0 
-#define TEMP_SENSOR_AD595_GAIN 1.0   
+#define TEMP_SENSOR_AD595_OFFSET 0.0
+#define TEMP_SENSOR_AD595_GAIN 1.0
 #define TEMP_SENSOR_AD8495_OFFSET 0.0
-#define TEMP_SENSOR_AD8495_GAIN 1.0  
+#define TEMP_SENSOR_AD8495_GAIN 1.0
 
 // @section fans
 
@@ -1529,7 +1529,7 @@
   #endif
 
   // Include a page of printer information in the LCD Main Menu
-  //#define LCD_INFO_MENU
+  #define LCD_INFO_MENU
   #if ENABLED(LCD_INFO_MENU)
     //#define LCD_PRINTER_INFO_IS_BOOTSCREEN // Show bootscreen(s) instead of Printer Info pages
   #endif
@@ -2596,7 +2596,7 @@
 
 // The number of linear moves that can be in the planner at once.
 #if ALL(HAS_MEDIA, DIRECT_STEPPING)
-  #define BLOCK_BUFFER_SIZE 16 
+  #define BLOCK_BUFFER_SIZE 16
 #elif HAS_MEDIA
   #define BLOCK_BUFFER_SIZE 16
 #else
@@ -2966,13 +2966,13 @@
    * Interpolate microsteps to 256
    * Override for each driver with <driver>_INTERPOLATE settings below
    */
-  #define INTERPOLATE true     
+  #define INTERPOLATE true
 
   #if AXIS_IS_TMC_CONFIG(X)
     #define X_CURRENT 800              // (mA) RMS current. Multiply by 1.414 for peak current.
     #define X_CURRENT_HOME X_CURRENT   // (mA) RMS current for sensorless homing
     #define X_MICROSTEPS 16            // 0..256
-    #define X_RSENSE 0.11         
+    #define X_RSENSE 0.11
     #define X_CHAIN_POS -1             // -1..0: Not chained. 1: MCU MOSI connected. 2: Next in chain, ...
     //#define X_INTERPOLATE  true      // Enable to override 'INTERPOLATE' for the X axis
     //#define X_HOLD_MULTIPLIER 0.5    // Enable to override 'HOLD_MULTIPLIER' for the X axis
@@ -2989,11 +2989,11 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(Y)
-    #define Y_CURRENT 800      
-    #define Y_CURRENT_HOME Y_CURRENT 
-    #define Y_MICROSTEPS 16    
-    #define Y_RSENSE 0.11         
-    #define Y_CHAIN_POS -1     
+    #define Y_CURRENT 800
+    #define Y_CURRENT_HOME Y_CURRENT
+    #define Y_MICROSTEPS 16
+    #define Y_RSENSE 0.11
+    #define Y_CHAIN_POS -1
     //#define Y_INTERPOLATE  true
     //#define Y_HOLD_MULTIPLIER 0.5
   #endif
@@ -3009,11 +3009,11 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(Z)
-    #define Z_CURRENT 800      
-    #define Z_CURRENT_HOME Z_CURRENT 
-    #define Z_MICROSTEPS 16    
-    #define Z_RSENSE 0.11         
-    #define Z_CHAIN_POS -1     
+    #define Z_CURRENT 800
+    #define Z_CURRENT_HOME Z_CURRENT
+    #define Z_MICROSTEPS 16
+    #define Z_RSENSE 0.11
+    #define Z_CHAIN_POS -1
     //#define Z_INTERPOLATE  true
     //#define Z_HOLD_MULTIPLIER 0.5
   #endif
@@ -3109,10 +3109,10 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(E0)
-    #define E0_CURRENT 800     
-    #define E0_MICROSTEPS 16   
-    #define E0_RSENSE 0.11        
-    #define E0_CHAIN_POS -1    
+    #define E0_CURRENT 800
+    #define E0_MICROSTEPS 16
+    #define E0_RSENSE 0.11
+    #define E0_CHAIN_POS -1
     //#define E0_INTERPOLATE true
     //#define E0_HOLD_MULTIPLIER 0.5
   #endif
@@ -3357,27 +3357,27 @@
   //#define HYBRID_THRESHOLD
 
   #define X_HYBRID_THRESHOLD 100      // [mm/s]
-  #define X2_HYBRID_THRESHOLD 100   
-  #define Y_HYBRID_THRESHOLD 100    
-  #define Y2_HYBRID_THRESHOLD 100   
-  #define Z_HYBRID_THRESHOLD 3      
-  #define Z2_HYBRID_THRESHOLD 3     
-  #define Z3_HYBRID_THRESHOLD 3     
-  #define Z4_HYBRID_THRESHOLD 3     
+  #define X2_HYBRID_THRESHOLD 100
+  #define Y_HYBRID_THRESHOLD 100
+  #define Y2_HYBRID_THRESHOLD 100
+  #define Z_HYBRID_THRESHOLD 3
+  #define Z2_HYBRID_THRESHOLD 3
+  #define Z3_HYBRID_THRESHOLD 3
+  #define Z4_HYBRID_THRESHOLD 3
   #define I_HYBRID_THRESHOLD 3        // [linear=mm/s, rotational=°/s]
   #define J_HYBRID_THRESHOLD 3        // [linear=mm/s, rotational=°/s]
   #define K_HYBRID_THRESHOLD 3        // [linear=mm/s, rotational=°/s]
   #define U_HYBRID_THRESHOLD 3        // [mm/s]
-  #define V_HYBRID_THRESHOLD 3      
-  #define W_HYBRID_THRESHOLD 3      
-  #define E0_HYBRID_THRESHOLD 30    
-  #define E1_HYBRID_THRESHOLD 30    
-  #define E2_HYBRID_THRESHOLD 30    
-  #define E3_HYBRID_THRESHOLD 30    
-  #define E4_HYBRID_THRESHOLD 30    
-  #define E5_HYBRID_THRESHOLD 30    
-  #define E6_HYBRID_THRESHOLD 30    
-  #define E7_HYBRID_THRESHOLD 30    
+  #define V_HYBRID_THRESHOLD 3
+  #define W_HYBRID_THRESHOLD 3
+  #define E0_HYBRID_THRESHOLD 30
+  #define E1_HYBRID_THRESHOLD 30
+  #define E2_HYBRID_THRESHOLD 30
+  #define E3_HYBRID_THRESHOLD 30
+  #define E4_HYBRID_THRESHOLD 30
+  #define E5_HYBRID_THRESHOLD 30
+  #define E6_HYBRID_THRESHOLD 30
+  #define E7_HYBRID_THRESHOLD 30
 
   /**
    * Use StallGuard to home / probe X, Y, Z.
@@ -4468,7 +4468,7 @@
  * @section stats
  */
 #if ENABLED(PRINTCOUNTER)
-  #define SERVICE_WARNING_BUZZES 3 
+  #define SERVICE_WARNING_BUZZES 3
   // Activate up to 3 service interval watchdogs
   //#define SERVICE_NAME_1      "Service S"
   //#define SERVICE_INTERVAL_1  100 // print hours
