@@ -261,6 +261,10 @@
   #include "tests/marlin_tests.h"
 #endif
 
+#if HAS_RS485_SERIAL
+  #include "feature/rs485.h"
+#endif
+
 PGMSTR(M112_KILL_STR, "M112 Shutdown");
 
 MarlinState marlin_state = MarlinState::MF_INITIALIZING;
@@ -307,13 +311,14 @@ bool wait_for_heatup = false;
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wnarrowing"
+#pragma GCC diagnostic ignored "-Wsign-compare"
 
 bool pin_is_protected(const pin_t pin) {
   #define pgm_read_pin(P) (sizeof(pin_t) == 2 ? (pin_t)pgm_read_word(P) : (pin_t)pgm_read_byte(P))
   for (uint8_t i = 0; i < COUNT(sensitive_dio); ++i)
     if (pin == pgm_read_pin(&sensitive_dio[i])) return true;
   for (uint8_t i = 0; i < COUNT(sensitive_aio); ++i)
-    if (pin == analogInputToDigitalPin(pgm_read_pin(&sensitive_dio[i]))) return true;
+    if (pin == analogInputToDigitalPin(pgm_read_pin(&sensitive_aio[i]))) return true;
   return false;
 }
 
@@ -1273,7 +1278,7 @@ void setup() {
 
   // Identify myself as Marlin x.x.x
   SERIAL_ECHOLNPGM("Marlin " SHORT_BUILD_VERSION);
-  #if defined(STRING_DISTRIBUTION_DATE) && defined(STRING_CONFIG_H_AUTHOR)
+  #ifdef STRING_DISTRIBUTION_DATE
     SERIAL_ECHO_MSG(
       " Last Updated: " STRING_DISTRIBUTION_DATE
       " | Author: " STRING_CONFIG_H_AUTHOR
@@ -1640,6 +1645,10 @@ void setup() {
 
   #if ENABLED(BD_SENSOR)
     SETUP_RUN(bdl.init(I2C_BD_SDA_PIN, I2C_BD_SCL_PIN, I2C_BD_DELAY));
+  #endif
+
+  #if HAS_RS485_SERIAL
+    SETUP_RUN(rs485_init());
   #endif
 
   #if ENABLED(FT_MOTION)
