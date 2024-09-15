@@ -315,7 +315,7 @@ void GcodeSuite::G28() {
 
     #else // !DELTA && !AXEL_TPARA
 
-      #define _UNSAFE(A) (homeZ && TERN0(Z_SAFE_HOMING, axes_should_home(_BV(A##_AXIS))))
+      #define _UNSAFE(A) TERN0(Z_SAFE_HOMING, homeZ && axis_should_home(_AXIS(A)))
 
       const bool homeZ = TERN0(HAS_Z_AXIS, parser.seen_test('Z')),
                  NUM_AXIS_LIST_(             // Other axes should be homed before Z safe-homing
@@ -371,7 +371,7 @@ void GcodeSuite::G28() {
           bool with_probe = ENABLED(HOMING_Z_WITH_PROBE);
           // Raise above the current Z (which should be synced in the planner)
           // The "height" for Z is a coordinate. But if Z is not trusted/homed make it relative.
-          if (seenR || !TERN(HOME_AFTER_DEACTIVATE, axis_is_trusted, axis_was_homed)(Z_AXIS)) {
+          if (seenR || !(z_min_trusted || axis_should_home(Z_AXIS))) {
             z_homing_height += current_position.z;
             with_probe = false;
           }

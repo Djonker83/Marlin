@@ -1105,10 +1105,13 @@
   //#define ASSISTED_TRAMMING_WAIT_POSITION { X_CENTER, Y_CENTER, 30 } // Move the nozzle out of the way for adjustment
 
   /**
-   * Screw thread:
-   *   M3: 30 = Clockwise, 31 = Counter-Clockwise
-   *   M4: 40 = Clockwise, 41 = Counter-Clockwise
-   *   M5: 50 = Clockwise, 51 = Counter-Clockwise
+   * Screw Thread. Use one of the following defines:
+   *
+   *   M3_CW = M3 Clockwise, M3_CCW = M3 Counter-Clockwise
+   *   M4_CW = M3 Clockwise, M4_CCW = M4 Counter-Clockwise
+   *   M5_CW = M3 Clockwise, M5_CCW = M5 Counter-Clockwise
+   *
+   * :{'M3_CW':'M3 Clockwise','M3_CCW':'M3 Counter-Clockwise','M4_CW':'M4 Clockwise','M4_CCW':'M4 Counter-Clockwise','M5_CW':'M5 Clockwise','M5_CCW':'M5 Counter-Clockwise'}
    */
   #define TRAMMING_SCREW_THREAD 30
 
@@ -1117,7 +1120,7 @@
 // @section motion control
 
 /**
- * Fixed-time-based Motion Control -- EXPERIMENTAL
+ * Fixed-time-based Motion Control -- BETA FEATURE
  * Enable/disable and set parameters with G-code M493.
  * See ft_types.h for named values used by FTM options.
  */
@@ -1181,7 +1184,7 @@
 #endif
 
 /**
- * Input Shaping -- EXPERIMENTAL
+ * Input Shaping
  *
  * Zero Vibration (ZV) Input Shaping for X and/or Y movements.
  *
@@ -1490,6 +1493,15 @@
   #define FEEDRATE_CHANGE_BEEP_FREQUENCY 440
 #endif
 
+/**
+ * Probe Offset Wizard
+ * Add a Probe Z Offset calibration option to the LCD menu.
+ * Use this helper to get a perfect 'M851 Z' probe offset.
+ * When launched this powerful wizard:
+ *  - Measures the bed height at the configured position with the probe.
+ *  - Moves the nozzle to the same position for a "paper" measurement.
+ *  - The difference is used to set the probe Z offset.
+ */
 #if HAS_BED_PROBE && ANY(HAS_MARLINUI_MENU, HAS_TFT_LVGL_UI)
   #define PROBE_OFFSET_WIZARD       // Add a Probe Z Offset calibration option to the LCD menu
   #if ENABLED(PROBE_OFFSET_WIZARD)
@@ -1508,6 +1520,10 @@
 #if HAS_MARLINUI_MENU
 
   #if HAS_BED_PROBE
+
+    // Show Deploy / Stow Probe options in the Motion menu.
+    #define PROBE_DEPLOY_STOW_MENU
+
     // Add calibration in the Probe Offsets menu to compensate for X-axis twist.
     //#define X_AXIS_TWIST_COMPENSATION
     #if ENABLED(X_AXIS_TWIST_COMPENSATION)
@@ -1522,8 +1538,6 @@
       #define XATC_Z_OFFSETS { 0, 0, 0 }    // Z offsets for X axis sample points
     #endif
 
-    // Show Deploy / Stow Probe options in the Motion menu.
-    #define PROBE_DEPLOY_STOW_MENU
   #endif
 
   // Include a page of printer information in the LCD Main Menu
@@ -2560,7 +2574,7 @@
 
 /**
  * Minimum stepper driver pulse width (in ns)
- * If undefined, these defaults (from Conditionals_adv.h) apply:
+ * If undefined, these defaults (from Conditionals-4-adv.h) apply:
  *     100 : Minimum for TMC2xxx stepper drivers
  *     500 : Minimum for LV8729
  *    1000 : Minimum for A4988 and A5984 stepper drivers
@@ -2574,7 +2588,7 @@
 
 /**
  * Maximum stepping rate (in Hz) the stepper driver allows
- * If undefined, these defaults (from Conditionals_adv.h) apply:
+ * If undefined, these defaults (from Conditionals-4-adv.h) apply:
  *  5000000 : Maximum for TMC2xxx stepper drivers
  *  1000000 : Maximum for LV8729 stepper driver
  *   500000 : Maximum for A4988 stepper driver
@@ -2708,7 +2722,7 @@
 
 /**
  * Set the number of proportional font spaces required to fill up a typical character space.
- * This can help to better align the output of commands like `G29 O` Mesh Output.
+ * This can help to better align the output of commands like 'G29 O' Mesh Output.
  *
  * For clients that use a fixed-width font (like OctoPrint), leave this set to 1.0.
  * Otherwise, adjust according to your client and font.
@@ -2975,7 +2989,7 @@
     #define X_CURRENT 800              // (mA) RMS current. Multiply by 1.414 for peak current.
     #define X_CURRENT_HOME X_CURRENT   // (mA) RMS current for homing. (Typically lower than *_CURRENT.)
     #define X_MICROSTEPS 16            // 0..256
-    #define X_RSENSE 0.11         
+    #define X_RSENSE 0.11
     #define X_CHAIN_POS -1             // -1..0: Not chained. 1: MCU MOSI connected. 2: Next in chain, ...
     //#define X_INTERPOLATE  true      // Enable to override 'INTERPOLATE' for the X axis
     //#define X_HOLD_MULTIPLIER 0.5    // Enable to override 'HOLD_MULTIPLIER' for the X axis

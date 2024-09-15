@@ -22,9 +22,15 @@
 #pragma once
 
 /**
- * Conditionals_etc.h
+ * Conditionals-3-etc.h
  * Conditionals that need to be set before Configuration_adv.h or pins.h
  */
+
+//========================================================
+// Get requirements for the benefit of IntelliSense, etc.
+//
+#include "Conditionals-2-LCD.h"
+//========================================================
 
 #ifndef STRING_CONFIG_H_AUTHOR
   #define STRING_CONFIG_H_AUTHOR "(anonymous)"
@@ -645,6 +651,9 @@
 
 #if DISABLED(DELTA)
   #undef DELTA_HOME_TO_SAFE_ZONE
+#endif
+#if ANY(DELTA, AXEL_TPARA)
+  #define Z_CAN_FALL_DOWN
 #endif
 
 /**
