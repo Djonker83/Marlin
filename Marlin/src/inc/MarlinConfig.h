@@ -21,34 +21,27 @@
  */
 #pragma once
 
-//
-// Prefix header for all Marlin sources
-//
+/**
+ * MarlinConfig.h
+ *
+ * Prefix header for all Marlin sources. Includes the following:
+ *
+ * Conditionals-6-type.h
+ *   MarlinConfigPre-6-type.h
+ *     Conditionals-5-post.h
+ *       MarlinConfigPre.h
+ *         ... (see the file) ...
+ *       HAL.h
+ *       pins.h
+ *       HAL/timers.h
+ *       HAL/spi_pins.h
+ *     types.h
+ */
 
-#include "MarlinConfigPre.h"
-
-#ifdef __MARLIN_DEPS__
-  #include "../HAL/shared/fauxpins.h"
-#else
-  #include "../HAL/HAL.h"
-#endif
-
-#include "../pins/pins.h"
-
-#ifndef __MARLIN_DEPS__
-  #include HAL_PATH(.., timers.h)
-  #include HAL_PATH(.., spi_pins.h)
-#endif
-
-#include "Conditionals_post.h"
+#include "Conditionals-6-type.h"
 
 #ifndef __MARLIN_DEPS__
 
-  #include HAL_PATH(.., inc/Conditionals_post.h)
-
-  #include "../core/types.h"  // Ahead of sanity-checks
-
-  #include "Conditionals_type.h"
   #include HAL_PATH(.., inc/Conditionals_type.h)
 
   #include "Changes.h"
@@ -59,6 +52,7 @@
   #include "../core/mstring.h"
   #include "../core/serial.h"
   #include "../core/endianness.h"
+  #include "../MarlinCore.h"
 
 #endif
 

@@ -30,7 +30,13 @@ out-csv/
 out-language/
 *.gen
 *.sublime-workspace
-Marlin/config_marlin_bf_2.1.x.ini
+.cache/
+
+# npm
+node_modules/
+package.json
+package-lock.json
+
 # OS
 applet/
 .DS_Store
@@ -125,6 +131,7 @@ vc-fileutils.settings
 # Visual Studio Code
 .vscode/*
 !.vscode/extensions.json
+*.code-workspace
 
 # Simulation files
 imgui.ini
@@ -168,3 +175,7 @@ __pycache__
 tags
 *.logs
 *.bak
+.aider*
+!.aiderignore
+.env
+schema.json
